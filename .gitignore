@@ -1,0 +1,12 @@
+*.pyc
+*.bak
+*.zip
+*.rar
+*.7z
+*.mp3
+*.wav
+.hg/
+*.hgignore
+*.hgtags
+*dist/
+*.egg-info/
