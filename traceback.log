@@ -1,4 +1,4 @@
-2020:04:01 13:01:07:045796 ~ Traceback (most recent call last):
+2020:04:01 13:02:44:144873 ~ Traceback (most recent call last):
   File "C:\SDK\Anaconda3\lib\site-packages\pydebugger\debug.py", line 222, in read_config
     data = self.cfg.get(section, option)
   File "C:\SDK\Anaconda3\lib\configparser.py", line 780, in get
@@ -7,12 +7,12 @@
     raise NoSectionError(section) from None
 configparser.NoSectionError: No section: 'DEBUG'
 
-2020:04:01 13:01:09:318570 ~ Traceback (most recent call last):
+2020:04:01 13:02:45:234010 ~ Traceback (most recent call last):
   File "D:\TOOLS\pyx\gitdate.py", line 218, in notify
     import PySnarl
 ModuleNotFoundError: No module named 'PySnarl'
 
-2020:04:01 13:01:10:651036 ~ Traceback (most recent call last):
+2020:04:01 13:02:46:367343 ~ Traceback (most recent call last):
   File "D:\TOOLS\pyx\gitdate.py", line 218, in notify
     import PySnarl
 ModuleNotFoundError: No module named 'PySnarl'

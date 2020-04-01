@@ -10,3 +10,6 @@
 *.hgtags
 *dist/
 *.egg-info/
+service.jpg
+service.png
+traceback.logg
