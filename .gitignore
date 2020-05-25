@@ -1,5 +1,4 @@
 *.pyc
-*.bak
 *.zip
 *.rar
 *.7z
@@ -8,8 +7,10 @@
 .hg/
 *.hgignore
 *.hgtags
-*dist/
-*.egg-info/
-service.jpg
-service.png
-traceback.logg
+tkimage1.py
+tkimage2.py
+tk_test01.py
+*.bak
+traceback.log
+*temp/
+putty.log

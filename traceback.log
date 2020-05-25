@@ -17,3 +17,18 @@ ModuleNotFoundError: No module named 'PySnarl'
     import PySnarl
 ModuleNotFoundError: No module named 'PySnarl'
 
+2020:04:01 13:02:47:659350 ~ Traceback (most recent call last):
+  File "D:\TOOLS\pyx\gitdate.py", line 218, in notify
+    import PySnarl
+ModuleNotFoundError: No module named 'PySnarl'
+
+2020:04:01 13:02:48:685246 ~ Traceback (most recent call last):
+  File "D:\TOOLS\pyx\gitdate.py", line 218, in notify
+    import PySnarl
+ModuleNotFoundError: No module named 'PySnarl'
+
+2020:04:01 13:02:49:515794 ~ Traceback (most recent call last):
+  File "D:\TOOLS\pyx\gitdate.py", line 732, in commit
+    if 'https:' in host or 'http:' in host or 'ssh:' in host or 'git:' in host:
+TypeError: argument of type 'bool' is not iterable
+

@@ -37,7 +37,7 @@ class servicemon(object):
         data_status = ''
         data_status1 = ''
         if config:
-            if config == 'auto':
+            if config == 'auto' or config == 'auto_start':
                 data_config = 'SC CONFIG "{0}" START= auto'
             elif config == 'demand' or config == 'manual':
                 data_config = 'SC CONFIG "{0}" START= demand'
