@@ -8,6 +8,7 @@ import xnotify
 import time
 from imagecode import imagecode
 import re
+import traceback
 
 class servicemon(object):
     def __init__(self):
@@ -24,9 +25,14 @@ class servicemon(object):
         a = os.popen('SC QUERY "{0}"'.format(service)).readlines()
         a = re.split("  |\n", a[3])
         status = a[-2].strip()
+        debug(service = service, debug = True)
         b = os.popen('SC QC "{0}"'.format(service)).readlines()
-        b = re.split("   |\n", b[4])        
-        config = b[-2].strip()
+        debug(b = b, debug = True)
+        try:
+            b = re.split("   |\n", b[4])        
+            config = b[-2].strip()
+        except IndexError:
+            return False, False
         return config, status
         
     def set_service(self, service, config = None, status = None):
@@ -90,30 +96,33 @@ class servicemon(object):
                         status = self.conf.get_config(i, 'status')
                         #print("status =", status)
                         debug(status = status, debug = True)
-                        real_config = self.real_status(i)[0].lower()
-                        #print('real_config =', real_config)
-                        debug(real_config = real_config, debug = True)
-                        real_status = self.real_status(i)[1].lower()
-                        #print("real_status =", real_status)
-                        debug(real_status = real_status, debug = True)
-                        #print("-" *50)
-                        debug(sleep_time = sleep_time, debug = True)
-                        if not config in real_config or not status in real_status:
-                            #debug("change service {0}".format(i))
-                            self.set_service(i, config, status)
-                            # self.conf.write_config(i, 'config', value = real_config)
-                            # self.conf.write_config(i, 'status', value = real_status)
-                        # else:
-                            #print("monitoring ...")
-                        real_status = self.real_status(i)[1].lower()
-                        #print("real_status =", real_status)
-                        debug(real_status = real_status, debug = True)
+                        real_config = self.real_status(i)
+                        if real_config[0]:
+                            real_config = self.real_status(i)[0].lower()
+                            #print('real_config =', real_config)
+                            debug(real_config = real_config, debug = True)
+                            real_status = self.real_status(i)[1].lower()
+                            #print("real_status =", real_status)
+                            debug(real_status = real_status, debug = True)
+                            #print("-" *50)
+                            debug(sleep_time = sleep_time, debug = True)
+                            if not config in real_config or not status in real_status:
+                                #debug("change service {0}".format(i))
+                                self.set_service(i, config, status)
+                                # self.conf.write_config(i, 'config', value = real_config)
+                                # self.conf.write_config(i, 'status', value = real_status)
+                            # else:
+                                #print("monitoring ...")
+                            real_status = self.real_status(i)[1].lower()
+                            #print("real_status =", real_status)
+                            debug(real_status = real_status, debug = True)
                     time.sleep(sleep_time)                        
                 else:
                     #print("monitoring ...")
                     time.sleep(sleep_time)
                 
         except:
+            traceback.format_exc()
             sys.exit()
                 
     def usage(self):
